@@ -22,6 +22,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.boot:spring-boot-starter-web' // 1. 웹 API 기능 (Controller)
+	implementation 'com.fasterxml.jackson.core:jackson-databind' // 2. JSON 변환 기능 (Service)
+	compileOnly 'org.projectlombok:lombok' // 3. 편의 기능 (DTO)
+	annotationProcessor 'org.projectlombok:lombok' // 3. 편의 기능 (DTO)
 }
 
 tasks.named('test') {

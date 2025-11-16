@@ -1,0 +1,47 @@
+[
+  {
+    "name": "이형빈",
+    "inningsPitched": 162.0,
+    "strikeouts": 150,
+    "walks": 60,
+    "intentionalWalks": 2,
+    "hitByPitch": 8,
+    "homeRuns": 15
+  },
+  {
+    "name": "고경수",
+    "inningsPitched": 170.0,
+    "strikeouts": 155,
+    "walks": 45,
+    "intentionalWalks": 1,
+    "hitByPitch": 5,
+    "homeRuns": 12
+  },
+  {
+    "name": "최우혁",
+    "inningsPitched": 155.0,
+    "strikeouts": 130,
+    "walks": 35,
+    "intentionalWalks": 3,
+    "hitByPitch": 3,
+    "homeRuns": 18
+  },
+  {
+    "name": "이민규",
+    "inningsPitched": 180.0,
+    "strikeouts": 175,
+    "walks": 50,
+    "intentionalWalks": 0,
+    "hitByPitch": 10,
+    "homeRuns": 14
+  },
+  {
+    "name": "이재우",
+    "inningsPitched": 140.0,
+    "strikeouts": 145,
+    "walks": 70,
+    "intentionalWalks": 1,
+    "hitByPitch": 7,
+    "homeRuns": 16
+  }
+]
