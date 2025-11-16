@@ -1,6 +1,5 @@
-package com.dlwodn.kbo_savermatrix_system.service; // service 패키지 맞는지 확인
+package com.dlwodn.kbo_savermatrix_system.service;
 
-// 퀘스트 1, 3에서 만든 부품/파이프들 import
 import com.dlwodn.kbo_savermatrix_system.dto.PlayerDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,59 +9,90 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Service // "이 클래스는 비즈니스 로직을 담당하는 '서비스'입니다" 라고 스프링에게 알려줌
+@Service
 public class FipService {
 
-    // FIP 계산에 필요한 리그 평균 상수 (일단 3.2로 고정)
+    // 투수: FIP 계산에 필요한 리그 평균 상수 (MVP용 플레이스홀더)
     private static final double FIP_CONSTANT = 3.2;
 
-    private final List<PlayerDto> playerCache; // json 데이터를 읽어서 저장해둘 '캐시'
+    // 타자: wRC 계산에 필요한 가중치 (리그 평균 상수는 제거됨)
+    private static final double W_SINGLE = 0.7; // 단타 가중치
+    private static final double W_DOUBLE = 1.1; // 2루타 가중치
+    private static final double W_TRIPLE = 1.4; // 3루타 가중치
+    private static final double W_HR = 1.8;     // 홈런 가중치
+    private static final double W_WALK = 0.3;   // 볼넷/사구 가중치
 
-    // '생성자' - FipService가 처음 실행될 때 딱 한 번만 호출됨
+    private final List<PlayerDto> pitcherCache;
+    private final List<PlayerDto> hitterCache;
+
+    // '생성자'
     public FipService(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
-        // "ResourceLoader" : resources 폴더의 파일을 읽는 도구
-        // "ObjectMapper" : JSON <-> Java 객체 변환 도구 (퀘스트 1에서 추가)
         try {
-            // 1. resources 폴더에서 players.json 파일을 찾는다.
             Resource resource = resourceLoader.getResource("classpath:players.json");
             InputStream inputStream = resource.getInputStream();
-
-            // 2. JSON 파일을 읽어서 -> List<PlayerDto> 자바 리스트로 변환한다.
             List<PlayerDto> players = objectMapper.readValue(inputStream, new TypeReference<List<PlayerDto>>() {});
 
-            // 3. FIP 계산 로직 실행
             calculateAndSetFip(players);
+            calculateAndSetWrc(players); // ⬅️ 메서드 이름도 wRC로 통일
 
-            // 4. FIP 기준으로 '오름차순' 정렬 (FIP는 낮을수록 좋음)
-            Collections.sort(players, Comparator.comparingDouble(PlayerDto::getFip));
+            // IP가 0보다 큰 선수만 투수 랭킹에 포함
+            this.pitcherCache = players.stream()
+                    .filter(p -> p.getInningsPitched() > 0)
+                    .sorted(Comparator.comparingDouble(PlayerDto::getFip))
+                    .collect(Collectors.toList());
 
-            // 5. 계산/정렬된 결과를 '캐시'에 저장
-            this.playerCache = players;
+            // PA가 0보다 큰 선수만 타자 랭킹에 포함 (wRC는 높을수록 좋으므로 내림차순)
+            this.hitterCache = players.stream()
+                    .filter(p -> p.getPlateAppearances() > 0)
+                    .sorted(Comparator.comparingDouble(PlayerDto::getWrc).reversed()) // ⬅️ wRC 기준으로 정렬
+                    .collect(Collectors.toList());
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("FIP 랭킹을 초기화하는 데 실패했습니다.", e);
+            throw new RuntimeException("랭킹을 초기화하는 데 실패했습니다.", e);
         }
     }
 
-    // [PUBLIC] FIP 랭킹을 반환하는 메인 메서드
-    public List<PlayerDto> getFipRanking() {
-        return this.playerCache; // 생성자에서 이미 계산/정렬해둔 캐시를 그냥 반환
+    // [PUBLIC] 투수 랭킹을 반환하는 메서드 (변경 없음)
+    public List<PlayerDto> getPitchingRanking() {
+        return this.pitcherCache;
     }
 
-    // [PRIVATE] 선수 리스트를 받아 FIP를 계산하고 DTO에 값을 세팅하는 메서드
+    // [PUBLIC] 타자 랭킹을 반환하는 메서드 (변경 없음)
+    public List<PlayerDto> getHittingRanking() {
+        return this.hitterCache;
+    }
+
+    // [PRIVATE] FIP 계산 로직 (변경 없음)
     private void calculateAndSetFip(List<PlayerDto> players) {
         for (PlayerDto player : players) {
-            // FIP 공식 적용
-            double fipNumerator = (13 * player.getHomeRuns()) + (3 * (player.getWalks() + player.getHitByPitch() - player.getIntentionalWalks())) - (2 * player.getStrikeouts());
-            double fip = (fipNumerator / player.getInningsPitched()) + FIP_CONSTANT;
+            if (player.getInningsPitched() > 0) {
+                double fipNumerator = (13 * player.getHomeRuns()) + (3 * (player.getWalks() + player.getHitByPitch() - player.getIntentionalWalks())) - (2 * player.getStrikeouts());
+                double fip = (fipNumerator / player.getInningsPitched()) + FIP_CONSTANT;
+                player.setFip(Math.round(fip * 100.0) / 100.0);
+            }
+        }
+    }
 
-            // DTO에 계산된 FIP 값 저장 (소수점 2자리까지만 반올림)
-            player.setFip(Math.round(fip * 100.0) / 100.0);
+    // [PRIVATE] wRC 계산 로직 (수정된 로직)
+    private void calculateAndSetWrc(List<PlayerDto> players) { // ⬅️ 메서드 이름 변경
+        for (PlayerDto player : players) {
+            if (player.getPlateAppearances() > 0) {
+                // 1. wRC (Weighted Runs Created) 계산
+                double wrc = (player.getSingle() * W_SINGLE) +
+                        (player.getDoubleBase() * W_DOUBLE) +
+                        (player.getTripleBase() * W_TRIPLE) +
+                        (player.getHomeRunBat() * W_HR) +
+                        ((player.getWalksBat() + player.getHitByPitchBat()) * W_WALK);
+
+                // 2. wRC 값 저장 (소수점 1자리까지)
+                // wRC+ 계산 로직은 완전히 제거되고 wRC값만 저장됨
+                player.setWrc(Math.round(wrc * 10.0) / 10.0); // ⬅️ setWrc로 저장
+            }
         }
     }
 }

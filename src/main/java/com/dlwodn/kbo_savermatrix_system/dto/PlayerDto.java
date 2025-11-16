@@ -12,7 +12,15 @@ public class PlayerDto {
     private int walks;
     private int intentionalWalks;
     private int hitByPitch;
-    private int homeRuns;
+    private int homeRuns;   //피홈런
+    private int single;       // 단타 (1루타)
+    private int doubleBase;   // 2루타
+    private int tripleBase;   // 3루타
+    private int homeRunBat;   // 홈런 (타자용)
+    private int walksBat;     // 볼넷 (타자용)
+    private int hitByPitchBat;// 사구 (타자용)
+    private int plateAppearances; // 타석 (PA)
+    private double wrc;      // wRC 결과 필드
 
     // FIP(계산 결과)를 담을 추가 필드
     private double fip;
