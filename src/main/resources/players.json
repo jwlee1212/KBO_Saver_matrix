@@ -43,5 +43,14 @@
     "intentionalWalks": 1,
     "hitByPitch": 7,
     "homeRuns": 16
+  },
+   {
+    "name": "박두현",
+    "inningsPitched": 144.1,
+    "strikeouts": 123,
+    "walks": 70,
+    "intentionalWalks": 3,
+    "hitByPitch": 7,
+    "homeRuns": 16
   }
 ]
