@@ -1,4 +1,4 @@
-package main.java.com.dlwodn.kbo_savermatrix_system.service; // service 패키지 맞는지 확인
+package com.dlwodn.kbo_savermatrix_system.service; // service 패키지 맞는지 확인
 
 // 퀘스트 1, 3에서 만든 부품/파이프들 import
 import com.dlwodn.kbo_savermatrix_system.dto.PlayerDto;
