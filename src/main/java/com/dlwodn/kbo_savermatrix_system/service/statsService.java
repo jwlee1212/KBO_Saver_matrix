@@ -13,39 +13,40 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @org.springframework.stereotype.Service
-public class Service {
+public class statsService {
 
-    // 투수: FIP 계산에 필요한 리그 평균 상수 (MVP용 플레이스홀더)
+    // 투수/타자 계산 상수 (변경 없음)
     private static final double FIP_CONSTANT = 3.2;
-
-    // 타자: wRC 계산에 필요한 가중치 (리그 평균 상수는 제거됨)
-    private static final double W_SINGLE = 0.7; // 단타 가중치
-    private static final double W_DOUBLE = 1.1; // 2루타 가중치
-    private static final double W_TRIPLE = 1.4; // 3루타 가중치
-    private static final double W_HR = 1.8;     // 홈런 가중치
-    private static final double W_WALK = 0.3;   // 볼넷/사구 가중치
+    private static final double W_SINGLE = 0.7;
+    private static final double W_DOUBLE = 1.1;
+    private static final double W_TRIPLE = 1.4;
+    private static final double W_HR = 1.8;
+    private static final double W_WALK = 0.3;
 
     private final List<PlayerDto> pitcherCache;
     private final List<PlayerDto> hitterCache;
 
-    // '생성자'
-    public Service(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
+    // '생성자' - 논리적 순서를 깔끔하게 정리!
+    public statsService(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
         try {
             Resource resource = resourceLoader.getResource("classpath:players.json");
             InputStream inputStream = resource.getInputStream();
             List<PlayerDto> players = objectMapper.readValue(inputStream, new TypeReference<List<PlayerDto>>() {});
+
+            // 1. 모든 투수 스탯 계산 (FIP, ERA, WHIP, K/9, BB/9 통합 계산!)
             calculateAndSetPitchingMetrics(players);
-            calculateAndSetFip(players);
+
+            // 2. 모든 타자 스탯 계산 (OBP, SLG, OPS, WRC 통합 계산!)
             calculateAndSetObpSlgOps(players);
-            calculateAndSetWrc(players); // ⬅️ 메서드 이름도 wRC로 통일
+            calculateAndSetWrc(players);
 
             // IP가 0보다 큰 선수만 투수 랭킹에 포함
             this.pitcherCache = players.stream()
                     .filter(p -> p.getInningsPitched() > 0)
-                    .sorted(Comparator.comparingDouble(PlayerDto::getEra)) // ⬅️ ERA 기준으로 정렬!
+                    .sorted(Comparator.comparingDouble(PlayerDto::getEra)) // ERA 기준으로 정렬!
                     .collect(Collectors.toList());
 
-            // PA가 0보다 큰 선수만 타자 랭킹에 포함 (wRC는 높을수록 좋으므로 내림차순)
+            // PA가 0보다 큰 선수만 타자 랭킹에 포함
             this.hitterCache = players.stream()
                     .filter(p -> p.getPlateAppearances() > 0)
                     .sorted(Comparator.comparingDouble(PlayerDto::getOps).reversed())
@@ -57,47 +58,25 @@ public class Service {
         }
     }
 
-    // [PUBLIC] 투수 랭킹을 반환하는 메서드 (변경 없음)
-    public List<PlayerDto> getPitchingRanking() {
-        return this.pitcherCache;
-    }
+    // [PUBLIC] 투수/타자 랭킹 반환 메서드는 변경 없음
+    public List<PlayerDto> getPitchingRanking() { return this.pitcherCache; }
+    public List<PlayerDto> getHittingRanking() { return this.hitterCache; }
 
-    // [PUBLIC] 타자 랭킹을 반환하는 메서드 (변경 없음)
-    public List<PlayerDto> getHittingRanking() {
-        return this.hitterCache;
-    }
 
-    // [PRIVATE] FIP 계산 로직 (변경 없음)
-    private void calculateAndSetFip(List<PlayerDto> players) {
-        for (PlayerDto player : players) {
-            if (player.getInningsPitched() > 0) {
-                double fipNumerator = (13 * player.getHomeRuns()) + (3 * (player.getWalks() + player.getHitByPitch() - player.getIntentionalWalks())) - (2 * player.getStrikeouts());
-                double fip = (fipNumerator / player.getInningsPitched()) + FIP_CONSTANT;
-                player.setFip(Math.round(fip * 100.0) / 100.0);
-            }
-        }
-    }
+    // [PRIVATE] OBP, SLG, OPS 계산 로직 (변경 없음)
     private void calculateAndSetObpSlgOps(List<PlayerDto> players) {
         for (PlayerDto player : players) {
             if (player.getPlateAppearances() > 0) {
-                // 타석수 (PA)
+                // ... (기존 OBP, SLG, OPS 계산 로직)
                 double pa = player.getPlateAppearances();
-                // 안타 (H) = 1B + 2B + 3B + HR
                 int hits = player.getSingle() + player.getDoubleBase() + player.getTripleBase() + player.getHomeRunBat();
-                // 타수 (AB) = PA - BB - HBP (간소화)
                 double atBats = pa - player.getWalksBat() - player.getHitByPitchBat();
 
-                // 1. 장타율 (SLG): (1B + 2B*2 + 3B*3 + HR*4) / AB
                 double totalBases = player.getSingle() + (player.getDoubleBase() * 2.0) + (player.getTripleBase() * 3.0) + (player.getHomeRunBat() * 4.0);
-                double slg = (atBats > 0) ? (totalBases / atBats) : 0.0; // 분모 0 방지
-
-                // 2. 출루율 (OBP): (H + BB + HBP) / PA
-                double obp = (pa > 0) ? ((double)hits + player.getWalksBat() + player.getHitByPitchBat()) / pa : 0.0; // 분모 0 방지
-
-                // 3. OPS: OBP + SLG
+                double slg = (atBats > 0) ? (totalBases / atBats) : 0.0;
+                double obp = (pa > 0) ? ((double)hits + player.getWalksBat() + player.getHitByPitchBat()) / pa : 0.0;
                 double ops = obp + slg;
 
-                // DTO에 저장 (소수점 3자리까지 반올림)
                 player.setOnBasePercentage(Math.round(obp * 1000.0) / 1000.0);
                 player.setSluggingPercentage(Math.round(slg * 1000.0) / 1000.0);
                 player.setOps(Math.round(ops * 1000.0) / 1000.0);
@@ -105,24 +84,22 @@ public class Service {
         }
     }
 
-    // [PRIVATE] wRC 계산 로직 (수정된 로직)
-    private void calculateAndSetWrc(List<PlayerDto> players) { // ⬅️ 메서드 이름 변경
+    // [PRIVATE] wRC 계산 로직 (변경 없음)
+    private void calculateAndSetWrc(List<PlayerDto> players) {
         for (PlayerDto player : players) {
             if (player.getPlateAppearances() > 0) {
-                // 1. wRC (Weighted Runs Created) 계산
                 double wrc = (player.getSingle() * W_SINGLE) +
                         (player.getDoubleBase() * W_DOUBLE) +
                         (player.getTripleBase() * W_TRIPLE) +
                         (player.getHomeRunBat() * W_HR) +
                         ((player.getWalksBat() + player.getHitByPitchBat()) * W_WALK);
 
-                // 2. wRC 값 저장 (소수점 1자리까지)
-                // wRC+ 계산 로직은 완전히 제거되고 wRC값만 저장됨
-                player.setWrc(Math.round(wrc * 10.0) / 10.0); // ⬅️ setWrc로 저장
+                player.setWrc(Math.round(wrc * 10.0) / 10.0);
             }
         }
     }
-    // [PRIVATE] 투수 계산 로직 통합 (FIP, ERA, WHIP, K/9, BB/9)
+
+    // [PRIVATE] 투수 계산 로직 통합 (FIP, ERA, WHIP, K/9, BB/9 모두 계산)
     private void calculateAndSetPitchingMetrics(List<PlayerDto> players) {
         for (PlayerDto player : players) {
             // IP가 0보다 클 때만 계산
