@@ -6,15 +6,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
-import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
-public class FipService {
+@org.springframework.stereotype.Service
+public class Service {
 
     // 투수: FIP 계산에 필요한 리그 평균 상수 (MVP용 플레이스홀더)
     private static final double FIP_CONSTANT = 3.2;
@@ -30,7 +29,7 @@ public class FipService {
     private final List<PlayerDto> hitterCache;
 
     // '생성자'
-    public FipService(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
+    public Service(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
         try {
             Resource resource = resourceLoader.getResource("classpath:players.json");
             InputStream inputStream = resource.getInputStream();
