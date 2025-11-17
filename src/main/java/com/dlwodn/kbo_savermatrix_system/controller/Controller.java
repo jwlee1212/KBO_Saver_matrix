@@ -1,7 +1,9 @@
+// Controller.java
+
 package com.dlwodn.kbo_savermatrix_system.controller;
 
 import com.dlwodn.kbo_savermatrix_system.dto.PlayerDto;
-import com.dlwodn.kbo_savermatrix_system.service.Service;
+import com.dlwodn.kbo_savermatrix_system.service.Service; // ⬅️ 'FipService'가 아니라 'Service'를 import!
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,23 +12,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class Controller {
+public class Controller { // ⬅️ 'FipController'가 아니라 'Controller'
 
-    private final Service Service;
+    private final Service service; // ⬅️ 'FipService'가 아니라 'Service'
 
-    public Controller(Service Service) {
-        this.Service = Service;
+    // '생성자'도 'Service'를 받도록 수정!
+    public Controller(Service service) { // ⬅️ 'FipService'가 아니라 'Service'
+        this.service = service;
     }
 
-    // [GET] /api/pitching-ranking 주소로 투수 랭킹 반환
+    // [GET] /api/pitching-ranking
     @GetMapping("/pitching-ranking")
     public List<PlayerDto> getPitchingRanking() {
-        return Service.getPitchingRanking();
+        return service.getPitchingRanking(); // ⬅️ service.
     }
 
-    // [GET] /api/hitting-ranking 주소로 타자 랭킹 반환
+    // [GET] /api/hitting-ranking
     @GetMapping("/hitting-ranking")
     public List<PlayerDto> getHittingRanking() {
-        return Service.getHittingRanking();
+        return service.getHittingRanking(); // ⬅️ service.
     }
 }
