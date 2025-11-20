@@ -30,8 +30,11 @@ public class PlayerDto {
     private double kPerNine;
     private double bbPerNine;
 
-    // 3. 타자 스탯 (희생타, 희생번트 추가!)
-    private int plateAppearances;   // 타석
+    // ⚡️ 누락되었던 투수 고급 스탯 추가! ⚡️
+    private double kbb;             // 볼삼비 (K/BB)
+
+    // 3. 타자 스탯
+    private int plateAppearances;
     private int single;
     private int doubleBase;
     private int tripleBase;
@@ -42,13 +45,22 @@ public class PlayerDto {
     private int rbi;
     private int stolenBases;
 
-    private int sacrificeFlies;     // ⬅️ 희생플라이 (SF) 추가!
-    private int sacrificeHits;      // ⬅️ 희생번트 (SH) 추가!
+    private int sacrificeFlies;
+    private int sacrificeHits;
+    private int strikeoutsBat;
 
-    // 타자 계산 결과 (타율 추가!)
-    private double battingAverage;  // ⬅️ 타율 (AVG) 추가!
+    // 타자 계산 결과
+    private double battingAverage;
     private double wrc;
     private double onBasePercentage;
     private double sluggingPercentage;
     private double ops;
+
+    // ⚡️ 누락되었던 타자 고급 스탯 추가! ⚡️
+    private double iso;             // 순수 장타율 (ISO)
+    private double babip;           // 인플레이 타구 타율 (BABIP)
+    private double woba;            // 가중 출루율 (wOBA)
+    private double wraa;            // 평균 대비 득점 기여 (wRAA)
+    private double psn;             // 호타준족 지수 (PSN)
+    private double gpa;             // GPA
 }
