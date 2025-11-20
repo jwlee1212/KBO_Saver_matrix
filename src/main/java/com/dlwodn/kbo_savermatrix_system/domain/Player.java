@@ -1,99 +1,103 @@
-package com.dlwodn.kbo_savermatrix_system.dto;
+package com.dlwodn.kbo_savermatrix_system.domain;
 
-import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
-public class PlayerDto {
+@Entity // 1. 이 클래스는 DB 테이블입니다.
+@Getter @Setter
+@NoArgsConstructor
+public class Player {
+
+    @Id // 2. 주민등록번호(PK)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // ⚡️ [핵심] JSON의 "name"을 자바의 name에 억지로라도 넣어라! (강제 매핑)
-    @JsonProperty("name")
     private String name;
-
-    @JsonProperty("position")
     private String position;
-
-    @JsonProperty("defensiveInnings")
     private double defensiveInnings;
 
-    @JsonProperty("inningsPitched")
+    // 2. 투수 스탯
     private double inningsPitched;
-    @JsonProperty("strikeouts")
     private int strikeouts;
-    @JsonProperty("walks")
     private int walks;
-    @JsonProperty("intentionalWalks")
     private int intentionalWalks;
-    @JsonProperty("hitByPitch")
     private int hitByPitch;
-    @JsonProperty("homeRuns")
     private int homeRuns;
-    @JsonProperty("wins")
     private int wins;
-    @JsonProperty("losses")
     private int losses;
-    @JsonProperty("holds")
     private int holds;
-    @JsonProperty("saves")
     private int saves;
-    @JsonProperty("hitsAllowed")
     private int hitsAllowed;
-    @JsonProperty("runsAllowed")
     private int runsAllowed;
-    @JsonProperty("earnedRuns")
     private int earnedRuns;
 
-    // 계산된 스탯들 (JSON에는 없고 계산 후 들어가는 것들이지만 일단 둠)
     private double era;
     private double fip;
     private double whip;
+
     @JsonProperty("kPerNine")
     private double kPerNine;
+
     @JsonProperty("bbPerNine")
     private double bbPerNine;
+
+    // ⚡️ 투수 PFR (Power/Finesse Ratio) 추가 ⚡️
+    @JsonProperty("pfr")
     private double pfr;
 
-    // 타자 스탯
-    @JsonProperty("plateAppearances")
+    // 3. 타자 스탯
     private int plateAppearances;
-    @JsonProperty("single")
     private int single;
-    @JsonProperty("doubleBase")
     private int doubleBase;
-    @JsonProperty("tripleBase")
     private int tripleBase;
-    @JsonProperty("homeRunBat")
     private int homeRunBat;
-    @JsonProperty("walksBat")
     private int walksBat;
-    @JsonProperty("hitByPitchBat")
     private int hitByPitchBat;
-    @JsonProperty("runs")
     private int runs;
-    @JsonProperty("rbi")
     private int rbi;
-    @JsonProperty("stolenBases")
     private int stolenBases;
-    @JsonProperty("sacrificeFlies")
+
     private int sacrificeFlies;
-    @JsonProperty("sacrificeHits")
     private int sacrificeHits;
-    @JsonProperty("strikeoutsBat")
     private int strikeoutsBat;
 
     // 타자 계산 결과
     private double battingAverage;
+
+    @JsonProperty("wrc")
     private double wrc;
+
     private double onBasePercentage;
     private double sluggingPercentage;
     private double ops;
+
+    @JsonProperty("iso")
     private double iso;
+
+    @JsonProperty("babip")
     private double babip;
+
+    @JsonProperty("woba")
     private double woba;
+
+    @JsonProperty("wraa")
     private double wraa;
+
+    @JsonProperty("psn")
     private double psn;
+
+    @JsonProperty("gpa")
     private double gpa;
+
+    // 기존 K/BB (유지)
+    @JsonProperty("kbb")
     private double kbb;
+
+    // ⚡️ 타자 BB/K (볼넷/삼진) 추가 ⚡️
+    @JsonProperty("bbk")
     private double bbk;
 }
+
