@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @org.springframework.stereotype.Service
-public class statsService {
+public class PlayerStatsService {
 
     // 투수/타자 계산 상수 (변경 없음)
     private static final double FIP_CONSTANT = 3.2;
@@ -27,7 +27,7 @@ public class statsService {
     private final List<PlayerDto> hitterCache;
 
     // '생성자' - 논리적 순서를 깔끔하게 정리!
-    public statsService(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
+    public PlayerStatsService(ResourceLoader resourceLoader, ObjectMapper objectMapper) {
         try {
             Resource resource = resourceLoader.getResource("classpath:players.json");
             InputStream inputStream = resource.getInputStream();
@@ -64,22 +64,32 @@ public class statsService {
 
 
     // [PRIVATE] OBP, SLG, OPS 계산 로직 (변경 없음)
+    // [PRIVATE] OBP, SLG, OPS, AVG 계산 로직
     private void calculateAndSetObpSlgOps(List<PlayerDto> players) {
         for (PlayerDto player : players) {
             if (player.getPlateAppearances() > 0) {
-                // ... (기존 OBP, SLG, OPS 계산 로직)
                 double pa = player.getPlateAppearances();
                 int hits = player.getSingle() + player.getDoubleBase() + player.getTripleBase() + player.getHomeRunBat();
-                double atBats = pa - player.getWalksBat() - player.getHitByPitchBat();
+
+                // ⚡️ 타수(AB) 계산에 희생타(SF, SH) 반영! ⚡️
+                double atBats = pa - player.getWalksBat() - player.getHitByPitchBat()
+                        - player.getSacrificeFlies() - player.getSacrificeHits();
 
                 double totalBases = player.getSingle() + (player.getDoubleBase() * 2.0) + (player.getTripleBase() * 3.0) + (player.getHomeRunBat() * 4.0);
                 double slg = (atBats > 0) ? (totalBases / atBats) : 0.0;
+
+                // ⚡️ OBP 계산은 PA 기준 (SF 포함) ⚡️
                 double obp = (pa > 0) ? ((double)hits + player.getWalksBat() + player.getHitByPitchBat()) / pa : 0.0;
+
+                // ⚡️ 타율(AVG) 계산 추가! ⚡️
+                double avg = (atBats > 0) ? ((double)hits / atBats) : 0.0;
+
                 double ops = obp + slg;
 
                 player.setOnBasePercentage(Math.round(obp * 1000.0) / 1000.0);
                 player.setSluggingPercentage(Math.round(slg * 1000.0) / 1000.0);
                 player.setOps(Math.round(ops * 1000.0) / 1000.0);
+                player.setBattingAverage(Math.round(avg * 1000.0) / 1000.0); // AVG 저장
             }
         }
     }

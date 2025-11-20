@@ -1,82 +1,82 @@
 [
   {
-    "name": "이형빈", "inningsPitched": 162.0, "strikeouts": 150, "walks": 60, "intentionalWalks": 2, "hitByPitch": 8, "homeRuns": 15, "wins": 10, "losses": 5, "holds": 0, "saves": 0, "hitsAllowed": 140, "runsAllowed": 70, "earnedRuns": 65,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "이형빈", "position": "P", "defensiveInnings": 162.0, "inningsPitched": 162.0, "strikeouts": 150, "walks": 60, "intentionalWalks": 2, "hitByPitch": 8, "homeRuns": 15, "wins": 10, "losses": 5, "holds": 0, "saves": 0, "hitsAllowed": 140, "runsAllowed": 70, "earnedRuns": 65,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "고경수", "inningsPitched": 170.0, "strikeouts": 155, "walks": 45, "intentionalWalks": 1, "hitByPitch": 5, "homeRuns": 12, "wins": 12, "losses": 3, "holds": 0, "saves": 0, "hitsAllowed": 150, "runsAllowed": 60, "earnedRuns": 55,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "고경수", "position": "P", "defensiveInnings": 170.0, "inningsPitched": 170.0, "strikeouts": 155, "walks": 45, "intentionalWalks": 1, "hitByPitch": 5, "homeRuns": 12, "wins": 12, "losses": 3, "holds": 0, "saves": 0, "hitsAllowed": 150, "runsAllowed": 60, "earnedRuns": 55,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "최우혁", "inningsPitched": 155.0, "strikeouts": 130, "walks": 35, "intentionalWalks": 3, "hitByPitch": 3, "homeRuns": 18, "wins": 8, "losses": 8, "holds": 0, "saves": 0, "hitsAllowed": 160, "runsAllowed": 80, "earnedRuns": 75,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "최우혁", "position": "P", "defensiveInnings": 155.0, "inningsPitched": 155.0, "strikeouts": 130, "walks": 35, "intentionalWalks": 3, "hitByPitch": 3, "homeRuns": 18, "wins": 8, "losses": 8, "holds": 0, "saves": 0, "hitsAllowed": 160, "runsAllowed": 80, "earnedRuns": 75,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "이민규", "inningsPitched": 180.0, "strikeouts": 175, "walks": 50, "intentionalWalks": 0, "hitByPitch": 10, "homeRuns": 14, "wins": 15, "losses": 2, "holds": 0, "saves": 0, "hitsAllowed": 170, "runsAllowed": 65, "earnedRuns": 60,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "이민규", "position": "P", "defensiveInnings": 180.0, "inningsPitched": 180.0, "strikeouts": 175, "walks": 50, "intentionalWalks": 0, "hitByPitch": 10, "homeRuns": 14, "wins": 15, "losses": 2, "holds": 0, "saves": 0, "hitsAllowed": 170, "runsAllowed": 65, "earnedRuns": 60,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "이재우", "inningsPitched": 140.0, "strikeouts": 145, "walks": 70, "intentionalWalks": 1, "hitByPitch": 7, "homeRuns": 16, "wins": 7, "losses": 6, "holds": 0, "saves": 0, "hitsAllowed": 130, "runsAllowed": 75, "earnedRuns": 70,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "이재우", "position": "P", "defensiveInnings": 140.0, "inningsPitched": 140.0, "strikeouts": 145, "walks": 70, "intentionalWalks": 1, "hitByPitch": 7, "homeRuns": 16, "wins": 7, "losses": 6, "holds": 0, "saves": 0, "hitsAllowed": 130, "runsAllowed": 75, "earnedRuns": 70,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "박두현", "inningsPitched": 144.1, "strikeouts": 123, "walks": 70, "intentionalWalks": 3, "hitByPitch": 7, "homeRuns": 16, "wins": 9, "losses": 5, "holds": 0, "saves": 0, "hitsAllowed": 140, "runsAllowed": 80, "earnedRuns": 72,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "박두현", "position": "P", "defensiveInnings": 144.1, "inningsPitched": 144.1, "strikeouts": 123, "walks": 70, "intentionalWalks": 3, "hitByPitch": 7, "homeRuns": 16, "wins": 9, "losses": 5, "holds": 0, "saves": 0, "hitsAllowed": 140, "runsAllowed": 80, "earnedRuns": 72,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "이예나", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 120, "doubleBase": 25, "tripleBase": 2, "homeRunBat": 10, "walksBat": 70, "hitByPitchBat": 8, "plateAppearances": 550, "runs": 80, "rbi": 60, "stolenBases": 15
+    "name": "이예나", "position": "C", "defensiveInnings": 850.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 550, "single": 120, "doubleBase": 25, "tripleBase": 2, "homeRunBat": 10, "walksBat": 70, "hitByPitchBat": 8, "runs": 80, "rbi": 60, "stolenBases": 15, "sacrificeFlies": 5, "sacrificeHits": 2
   },
   {
-    "name": "김서연", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 80, "doubleBase": 15, "tripleBase": 1, "homeRunBat": 5, "walksBat": 40, "hitByPitchBat": 5, "plateAppearances": 350, "runs": 40, "rbi": 30, "stolenBases": 5
+    "name": "김서연", "position": "1B", "defensiveInnings": 900.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 350, "single": 80, "doubleBase": 15, "tripleBase": 1, "homeRunBat": 5, "walksBat": 40, "hitByPitchBat": 5, "runs": 40, "rbi": 30, "stolenBases": 5, "sacrificeFlies": 2, "sacrificeHits": 1
   },
   {
-    "name": "이지원", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 50, "doubleBase": 10, "tripleBase": 0, "homeRunBat": 20, "walksBat": 30, "hitByPitchBat": 4, "plateAppearances": 300, "runs": 50, "rbi": 70, "stolenBases": 2
+    "name": "이지원", "position": "2B", "defensiveInnings": 700.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 300, "single": 50, "doubleBase": 10, "tripleBase": 0, "homeRunBat": 20, "walksBat": 30, "hitByPitchBat": 4, "runs": 50, "rbi": 70, "stolenBases": 2, "sacrificeFlies": 3, "sacrificeHits": 5
   },
   {
-    "name": "이서연", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 10, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 1, "walksBat": 5, "hitByPitchBat": 0, "plateAppearances": 45, "runs": 5, "rbi": 3, "stolenBases": 0
+    "name": "이서연", "position": "3B", "defensiveInnings": 100.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 45, "single": 10, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 1, "walksBat": 5, "hitByPitchBat": 0, "runs": 5, "rbi": 3, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 1
   },
   {
-    "name": "장서인", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 150, "doubleBase": 40, "tripleBase": 5, "homeRunBat": 30, "walksBat": 90, "hitByPitchBat": 12, "plateAppearances": 700, "runs": 120, "rbi": 110, "stolenBases": 10
+    "name": "장서인", "position": "SS", "defensiveInnings": 1100.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 700, "single": 150, "doubleBase": 40, "tripleBase": 5, "homeRunBat": 30, "walksBat": 90, "hitByPitchBat": 12, "runs": 120, "rbi": 110, "stolenBases": 10, "sacrificeFlies": 8, "sacrificeHits": 0
   },
   {
-    "name": "이정준", "inningsPitched": 60.0, "strikeouts": 50, "walks": 30, "intentionalWalks": 2, "hitByPitch": 5, "homeRuns": 10, "wins": 1, "losses": 3, "holds": 10, "saves": 2, "hitsAllowed": 55, "runsAllowed": 35, "earnedRuns": 30,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "이정준", "position": "P", "defensiveInnings": 60.0, "inningsPitched": 60.0, "strikeouts": 50, "walks": 30, "intentionalWalks": 2, "hitByPitch": 5, "homeRuns": 10, "wins": 1, "losses": 3, "holds": 10, "saves": 2, "hitsAllowed": 55, "runsAllowed": 35, "earnedRuns": 30,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "임시우", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 70, "doubleBase": 12, "tripleBase": 1, "homeRunBat": 8, "walksBat": 35, "hitByPitchBat": 5, "plateAppearances": 400, "runs": 45, "rbi": 40, "stolenBases": 8
+    "name": "임시우", "position": "LF", "defensiveInnings": 800.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 400, "single": 70, "doubleBase": 12, "tripleBase": 1, "homeRunBat": 8, "walksBat": 35, "hitByPitchBat": 5, "runs": 45, "rbi": 40, "stolenBases": 8, "sacrificeFlies": 2, "sacrificeHits": 2
   },
   {
-    "name": "이승준", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 45, "doubleBase": 10, "tripleBase": 0, "homeRunBat": 15, "walksBat": 25, "hitByPitchBat": 3, "plateAppearances": 250, "runs": 35, "rbi": 50, "stolenBases": 1
+    "name": "이승준", "position": "CF", "defensiveInnings": 500.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 250, "single": 45, "doubleBase": 10, "tripleBase": 0, "homeRunBat": 15, "walksBat": 25, "hitByPitchBat": 3, "runs": 35, "rbi": 50, "stolenBases": 1, "sacrificeFlies": 1, "sacrificeHits": 4
   },
   {
-    "name": "최윤성", "inningsPitched": 70.0, "strikeouts": 80, "walks": 20, "intentionalWalks": 0, "hitByPitch": 2, "homeRuns": 5, "wins": 5, "losses": 1, "holds": 15, "saves": 1, "hitsAllowed": 60, "runsAllowed": 25, "earnedRuns": 22,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "최윤성", "position": "P", "defensiveInnings": 70.0, "inningsPitched": 70.0, "strikeouts": 80, "walks": 20, "intentionalWalks": 0, "hitByPitch": 2, "homeRuns": 5, "wins": 5, "losses": 1, "holds": 15, "saves": 1, "hitsAllowed": 60, "runsAllowed": 25, "earnedRuns": 22,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "박재현", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 140, "doubleBase": 35, "tripleBase": 4, "homeRunBat": 28, "walksBat": 85, "hitByPitchBat": 10, "plateAppearances": 650, "runs": 110, "rbi": 95, "stolenBases": 20
+    "name": "박재현", "position": "RF", "defensiveInnings": 650.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 650, "single": 140, "doubleBase": 35, "tripleBase": 4, "homeRunBat": 28, "walksBat": 85, "hitByPitchBat": 10, "runs": 110, "rbi": 95, "stolenBases": 20, "sacrificeFlies": 10, "sacrificeHits": 0
   },
   {
-    "name": "조성현", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 60, "doubleBase": 15, "tripleBase": 1, "homeRunBat": 10, "walksBat": 40, "hitByPitchBat": 5, "plateAppearances": 420, "runs": 55, "rbi": 45, "stolenBases": 12
+    "name": "조성현", "position": "DH", "defensiveInnings": 0.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 420, "single": 60, "doubleBase": 15, "tripleBase": 1, "homeRunBat": 10, "walksBat": 40, "hitByPitchBat": 5, "runs": 55, "rbi": 45, "stolenBases": 12, "sacrificeFlies": 3, "sacrificeHits": 0
   },
   {
-    "name": "김민겸", "inningsPitched": 50.0, "strikeouts": 65, "walks": 15, "intentionalWalks": 0, "hitByPitch": 1, "homeRuns": 3, "wins": 3, "losses": 0, "holds": 8, "saves": 20, "hitsAllowed": 40, "runsAllowed": 15, "earnedRuns": 12,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "김민겸", "position": "P", "defensiveInnings": 50.0, "inningsPitched": 50.0, "strikeouts": 65, "walks": 15, "intentionalWalks": 0, "hitByPitch": 1, "homeRuns": 3, "wins": 3, "losses": 0, "holds": 8, "saves": 20, "hitsAllowed": 40, "runsAllowed": 15, "earnedRuns": 12,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   },
   {
-    "name": "정재현", "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
-    "single": 90, "doubleBase": 20, "tripleBase": 2, "homeRunBat": 15, "walksBat": 60, "hitByPitchBat": 8, "plateAppearances": 500, "runs": 70, "rbi": 55, "stolenBases": 8
+    "name": "정재현", "position": "C", "defensiveInnings": 450.0, "inningsPitched": 0.0, "strikeouts": 0, "walks": 0, "intentionalWalks": 0, "hitByPitch": 0, "homeRuns": 0, "wins": 0, "losses": 0, "holds": 0, "saves": 0, "hitsAllowed": 0, "runsAllowed": 0, "earnedRuns": 0,
+    "plateAppearances": 500, "single": 90, "doubleBase": 20, "tripleBase": 2, "homeRunBat": 15, "walksBat": 60, "hitByPitchBat": 8, "runs": 70, "rbi": 55, "stolenBases": 8, "sacrificeFlies": 4, "sacrificeHits": 1
   },
   {
-    "name": "안재하", "inningsPitched": 65.0, "strikeouts": 70, "walks": 25, "intentionalWalks": 1, "hitByPitch": 3, "homeRuns": 8, "wins": 4, "losses": 2, "holds": 5, "saves": 12, "hitsAllowed": 50, "runsAllowed": 30, "earnedRuns": 28,
-    "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "plateAppearances": 0, "runs": 0, "rbi": 0, "stolenBases": 0
+    "name": "안재하", "position": "P", "defensiveInnings": 65.0, "inningsPitched": 65.0, "strikeouts": 70, "walks": 25, "intentionalWalks": 1, "hitByPitch": 3, "homeRuns": 8, "wins": 4, "losses": 2, "holds": 5, "saves": 12, "hitsAllowed": 50, "runsAllowed": 30, "earnedRuns": 28,
+    "plateAppearances": 0, "single": 0, "doubleBase": 0, "tripleBase": 0, "homeRunBat": 0, "walksBat": 0, "hitByPitchBat": 0, "runs": 0, "rbi": 0, "stolenBases": 0, "sacrificeFlies": 0, "sacrificeHits": 0
   }
 ]
