@@ -1,13 +1,16 @@
 package com.dlwodn.kbo_savermatrix_system.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor; // ⚡️ [핵심] 이거 없으면 데이터 0으로 나옴!
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Data
+@NoArgsConstructor  // ⚡️ 필수!
+@AllArgsConstructor // ⚡️ 필수!
 public class PlayerDto {
     private Long id;
 
-    // ⚡️ [핵심] JSON의 "name"을 자바의 name에 억지로라도 넣어라! (강제 매핑)
     @JsonProperty("name")
     private String name;
 
@@ -16,6 +19,10 @@ public class PlayerDto {
 
     @JsonProperty("defensiveInnings")
     private double defensiveInnings;
+
+    // ... (나머지 필드들은 그대로 두셔도 됩니다)
+    // 만약 불안하면 아까 드린 '전체 코드'를 그대로 쓰세요.
+    // 핵심은 클래스 위에 @NoArgsConstructor 붙이는 것입니다.
 
     @JsonProperty("inningsPitched")
     private double inningsPitched;
@@ -44,7 +51,6 @@ public class PlayerDto {
     @JsonProperty("earnedRuns")
     private int earnedRuns;
 
-    // 계산된 스탯들 (JSON에는 없고 계산 후 들어가는 것들이지만 일단 둠)
     private double era;
     private double fip;
     private double whip;
@@ -54,7 +60,6 @@ public class PlayerDto {
     private double bbPerNine;
     private double pfr;
 
-    // 타자 스탯
     @JsonProperty("plateAppearances")
     private int plateAppearances;
     @JsonProperty("single")
@@ -82,7 +87,6 @@ public class PlayerDto {
     @JsonProperty("strikeoutsBat")
     private int strikeoutsBat;
 
-    // 타자 계산 결과
     private double battingAverage;
     private double wrc;
     private double onBasePercentage;
